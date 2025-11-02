@@ -8,7 +8,7 @@ class Command(BaseCommand):
         parser.add_argument("--folder", type=str, default=None)
         parser.add_argument("--out", type=str, default="./OUT")
         parser.add_argument("--prompt", type=str, default="./PROMPT.txt")
-        parser.add_argument("--gate", choices=["rat", "rodent", "any"], default="rat")
+        parser.add_argument("--gate", choices=["rat", "rodent", "any"], default="any")
 
     def handle(self, *args, **options):
         call_command(
