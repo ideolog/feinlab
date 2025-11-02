@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 6. Обнови файл .env в корне проекта рядом с manage.py
 Открой страницу https://platform.openai.com/settings/organization/api-keys
-Скопируй свой API-ключ
+Сгенерируй свой API-ключ
 Вставь в .env строку:
 OPENAI_API_KEY=твой_ключ_сюда_без_всяких_кавычек
 
