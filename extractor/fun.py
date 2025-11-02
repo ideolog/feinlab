@@ -127,7 +127,7 @@ class BelochUX:
         quote = random.choice(self.quotes)
 
         # final demonic flourish
-        self.writer("\n" + "😈" * 100 + "\n")
+        self.writer("ฅ^•ﻌ•^ฅ  < job done\n")
 
         self.writer(f"🔥 100% processed. The purple satan nods.\n{quote} 😈\n")
         self.writer(
