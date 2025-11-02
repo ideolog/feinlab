@@ -75,7 +75,7 @@ class BelochUX:
 
         # final flourish
 
-        self.writer(f"\nฅ^•ﻌ•^ฅ\n 🔥 100% processed.\n{quote} 😈\n")
+        self.writer(f"\nฅ^•ﻌ•^ฅ 🔥 100% processed.\n{quote} 😈\n\n")
 
         self.writer(
             f"Total duration: {total_str}\n"
