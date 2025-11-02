@@ -31,12 +31,12 @@ pip install -r requirements.txt
 PDF/
 
 8. Запуск обработки статей:
-   - Только статьи на крысах (режим по умолчанию):
-`python manage.py beloch `
+   - Игнорировать вид, но требовать in vivo single-unit или LFP (режим по умолчанию):
+`python manage.py beloch`
+   - Только статьи на крысах:
+`python manage.py beloch --gate rat`
    - Разрешить крыс и мышей:
 `python manage.py beloch --gate rodent `
-   - Игнорировать вид, но требовать in vivo single-unit или LFP:
-`python manage.py beloch --gate any`
 
 9. Результаты появятся в папке:
 OUT/
