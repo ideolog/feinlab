@@ -31,23 +31,17 @@ pip install -r requirements.txt
 PDF/
 
 8. Запуск обработки статей:
-   - Игнорировать вид, но требовать in vivo single-unit или LFP (режим по умолчанию):
 `python manage.py beloch`
-   - Только статьи на крысах:
-`python manage.py beloch --gate rat`
-   - Разрешить крыс и мышей:
-`python manage.py beloch --gate rodent `
 
 9. Результаты появятся в папке:
 OUT/
 Формат имен файлов:
-`имя_статьи.gate.json`
+`имя_статьи.json`
+10. 
 Например:
-`OUT/elife-85069.rodent.json`
+`OUT/elife-85069.json`
 
 10. Если нужно редактировать PROMPT, то он лежит в PROMPT.txt в корне проекта.
-Но! Не забудь что там еще часть промта добавляется в обработчике extractor/management/commands/process_papers.py 
-Он переписывает команды основного промпта, чтобы уточнить правилу по мышам/крысам/прочим зверушкам.
 
 ฅ^•ﻌ•^ฅ 
 

@@ -1,14 +1,15 @@
+# extractor/management/commands/beloch.py
+
 from django.core.management.base import BaseCommand, CommandParser
 from django.core.management import call_command
 
 class Command(BaseCommand):
-    help = "Alias for process_papers (because Beloch 🐿️)"
+    help = "Runs simplified paper processing (no animal gates, only electrophysiology relevance)."
 
     def add_arguments(self, parser: CommandParser):
         parser.add_argument("--folder", type=str, default=None)
         parser.add_argument("--out", type=str, default="./OUT")
         parser.add_argument("--prompt", type=str, default="./PROMPT.txt")
-        parser.add_argument("--gate", choices=["rat", "rodent", "any"], default="any")
 
     def handle(self, *args, **options):
         call_command(
@@ -16,5 +17,4 @@ class Command(BaseCommand):
             folder=options["folder"],
             out=options["out"],
             prompt=options["prompt"],
-            gate=options["gate"],
         )

@@ -1,24 +1,15 @@
-Use only the uploaded PDF content. Do not infer. If a detail is missing, write "Not specified".
-temperature=0. Output ONLY valid JSON matching the schema below.
+Use only the content from the uploaded PDF.
+Do not infer or generate information that is not explicitly written.
+If a detail is not found in the text, write “Not specified”.
+Analyze the PDF exactly according to the structure below.
 
-Relevance rules (apply in this order, strictly):
+You are a neuroscientist analyzing the methods of the uploaded article.
+Extract information only about methodological details — not results or interpretations.
+If the paper does not contain in vivo electrophysiology with single-unit or LFP recordings, reply only:
+“Not relevant: no electrophysiology or neural recordings.”
+Consider the following as electrophysiology: single-unit recordings, multi-unit recordings, extracellular recordings, LFP, ECoG, or Neuropixels data.
 
-1) Determine species first:
-Species detection policy: Decide species only from (in order): Title → Abstract → ‘Animals/Subjects/Methods’ sections. Ignore references and discussion. If both ‘rat’ and ‘mouse’ appear anywhere, pick the species named in Title/Animals/Methods. If multiple species, pick the one used for the in-vivo single-unit/LFP data. Return ‘Not specified’ only if none of these sections contain a species.
-    - If species is mouse:
-       {"relevance": "no", "reason": "Species is mouse (not rat)."}
-   - If species is any non-rat (e.g., monkey, human, fish, bird, etc.):
-       {"relevance": "no", "reason": "Species is [detected species], not rat."}
-
-2) Only if species = rat:
-   Check electrophysiology relevance:
-   If the paper does NOT include in vivo electrophysiology in rats with single-unit and/or LFP recordings:
-       {"relevance":"no","reason":"Not relevant: no in vivo single-unit or LFP electrophysiology in rats."}
-
-3) Otherwise (species = rat AND electrophysiology present):
-   relevance = "yes"
-   and fill the full schema.
-
+temperature=0. Output ONLY valid JSON matching the schema below:
 
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
