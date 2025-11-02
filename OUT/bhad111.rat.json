@@ -1,0 +1,55 @@
+{
+  "relevance": "yes",
+  "reason": "Species is rat and in vivo single-unit electrophysiology is present.",
+  "header": {
+    "title": "Single-neuron population coupling across sensory and (para)hippocampal areas in freely moving rats",
+    "authors": "Reinder Dorman, Jochem S. Montijn, Christian M.A. Pennartz, Cyriel M.A. Pennartz",
+    "year": "2023",
+    "journal_or_doi": "Cerebral Cortex, 2023, Vol. 33, No. 13, 8247–8267, https://doi.org/10.1093/cercor/bhad111"
+  },
+  "category": {
+    "spike_level": true,
+    "spatial_level": true,
+    "population_level": true,
+    "temporal_network": true,
+    "lfp_eeg": false,
+    "supporting_aux": false
+  },
+  "data_description": {
+    "recording_type": "in vivo single-unit (tetrode recordings)",
+    "brain_region": "hippocampal CA1, somatosensory cortex (S1BF), visual cortex (V1), perirhinal cortex (PER)",
+    "species": "rat",
+    "behavioral_condition": "freely moving, active wakefulness, quiet wakefulness, non-REM sleep",
+    "behavioral_task": "figure-8 maze"
+  },
+  "spike_level": {
+    "sorting_method_software": "Not specified",
+    "unit_inclusion_thresholds": "Significantly coupled cells defined as SNPC above 4.5 standard deviations from shuffled distribution",
+    "temporal_binning_filters": "Not specified",
+    "computed_metrics": "Single-neuron population coupling (SNPC), Z-scored to shuffled distribution, cross-correlation of single unit with population activity",
+    "stat_controls": "Spearman’s rank correlation, Pearson’s correlation, Kruskal–Wallis test, Wilcoxon’s signed-rank and rank sum tests, Bonferroni correction, bootstrapping (1,000 iterations)"
+  },
+  "spatial_level": {
+    "frm_bin_size_coord": "Not specified",
+    "smoothing_kernel": "Not specified",
+    "occupancy_correction": "Not specified",
+    "normalization": "Z-scored to shuffled distribution",
+    "place_field_definition": "Not specified",
+    "spatial_metrics": "Spatial selectivity, correlation of SNPC with spatial coding",
+    "stability_remapping": "Not specified",
+    "object_cue_related": "Not specified"
+  },
+  "population_level": {
+    "correlation_measures": "Spearman’s rank correlation, Pearson’s correlation between within- and between-area coupling",
+    "dimensionality_reduction": "Not specified (multi-Gaussian curve fitting and dimensionality reduction mentioned but not systematically used)",
+    "clustering": "Not specified",
+    "decoding_prediction": "Decoding accuracy of cell’s activity from local and external population activity",
+    "synchrony_assembly": "Broadcasting index (number of areas a single cell is significantly coupled with)"
+  },
+  "temporal_network": {
+    "cross_correlation": "Cross-correlation of single unit activity with summed population activity within and between areas",
+    "sequences_replay": "Not specified",
+    "network_metrics": "Broadcasting index, meta-network coupling profiles",
+    "spike_lfp_coherence": "Not specified"
+  }
+}

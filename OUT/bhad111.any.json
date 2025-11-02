@@ -1,0 +1,55 @@
+{
+  "relevance": "yes",
+  "reason": "In vivo single-unit electrophysiology in rats is present.",
+  "header": {
+    "title": "Spike-based coupling between single neurons and populations across rat sensory cortices, perirhinal cortex, and hippocampus",
+    "authors": "Reinder Dorman, Jeroen J. Bos, Martin A. Vinck, Pietro Marchesi, Julien Fiorilli, Jeanette A.M. Lorteije, Ingrid Reiten, Jan G. Bjaalie, Michael Okun, Cyriel M.A. Pennartz",
+    "year": "2023",
+    "journal_or_doi": "Cerebral Cortex, 2023, 33, 8247–8264; https://doi.org/10.1093/cercor/bhad111"
+  },
+  "category": {
+    "spike_level": true,
+    "spatial_level": true,
+    "population_level": true,
+    "temporal_network": true,
+    "lfp_eeg": false,
+    "supporting_aux": true
+  },
+  "data_description": {
+    "recording_type": "In vivo tetrode single-unit recordings",
+    "brain_region": "S1BF (somatosensory cortex), V1 (visual cortex), PER (perirhinal cortex), CA1 (hippocampus)",
+    "species": "rat",
+    "behavioral_condition": "Active wakefulness during task performance and sleep",
+    "behavioral_task": "Two-choice visual discrimination task on a figure-8 maze"
+  },
+  "spike_level": {
+    "sorting_method_software": "KlustaKwik (Ken Harris), MClust 3.5 (A.D. Redish)",
+    "unit_inclusion_thresholds": "Clusters accepted when inter-spike interval of 2 ms was contaminated with < 0.1% of total spike count; minimum of 3 cells per session and area for inclusion",
+    "temporal_binning_filters": "Spiking activity extracted from bandpass filtered (600–6,000 Hz) signals, digitized at 3 kHz; cross-correlation for SNPC analysis",
+    "computed_metrics": "Single-neuron population coupling (SNPC), Z-scored to shuffled distribution, peak/trough analysis, explained variance for decoding, firing rate, waveform shape, cell type classification (FS interneurons, pyramidal cells)",
+    "stat_controls": "Kruskal–Wallis test, Wilcoxon’s signed-rank and rank sum tests, Bonferroni correction, bootstrapping (1,000 iterations), Freedman-Diaconis’ method for binning"
+  },
+  "spatial_level": {
+    "frm_bin_size_coord": "Maze segmented into 51 equally sized spatial bins (~9 cm each)",
+    "smoothing_kernel": "Not specified",
+    "occupancy_correction": "Not specified",
+    "normalization": "Z-scored SNPC to shuffled distribution",
+    "place_field_definition": "Not specified",
+    "spatial_metrics": "Spatial selectivity, correlation of SNPC with spatial coding",
+    "stability_remapping": "Not specified",
+    "object_cue_related": "Visual and tactile cues used in behavioral task; visual discrimination of CS+ and CS− stimuli"
+  },
+  "population_level": {
+    "correlation_measures": "Spearman’s rank correlation, Pearson’s correlation, cross-correlation of single unit with population activity",
+    "dimensionality_reduction": "Dimensionality reduction techniques mentioned but not systematically used for SNPC profile description",
+    "clustering": "Automated and manual spike clustering based on waveform peak amplitude, energy, and first derivative of energy",
+    "decoding_prediction": "Decoding of reference cell’s spiking activity from population rates; explained variance analysis",
+    "synchrony_assembly": "Analysis of broadcasting index (number of areas a single cell is significantly coupled with); analysis of synchrony between single neurons and populations"
+  },
+  "temporal_network": {
+    "cross_correlation": "Cross-correlation of single unit activity with summed population activity within and between areas",
+    "sequences_replay": "Not specified",
+    "network_metrics": "Broadcasting Index (BI), analysis of within- and between-area coupling, meta-network structure",
+    "spike_lfp_coherence": "Not specified"
+  }
+}

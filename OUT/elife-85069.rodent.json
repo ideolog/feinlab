@@ -1,0 +1,55 @@
+{
+  "relevance": "yes",
+  "reason": "Species is mouse (rodent mode: allowed). In vivo single-unit electrophysiology (Neuropixels) in mouse hippocampus and visual areas is present.",
+  "header": {
+    "title": "Mega-scale movie-fields in the mouse visuo-hippocampal network",
+    "authors": "Chinmay Purandare, Mayank Mehta",
+    "year": "2023",
+    "journal_or_doi": "eLife 2023;12:RP85069. DOI: https://doi.org/10.7554/eLife.85069"
+  },
+  "category": {
+    "spike_level": true,
+    "spatial_level": true,
+    "population_level": true,
+    "temporal_network": true,
+    "lfp_eeg": false,
+    "supporting_aux": true
+  },
+  "data_description": {
+    "recording_type": "In vivo single-unit (Neuropixels) extracellular recordings",
+    "brain_region": "Hippocampus (dentate gyrus, CA3, CA1, subiculum), visual areas (LGN, V1, AM-PM)",
+    "species": "Mouse",
+    "behavioral_condition": "Head-fixed, passively viewing, immobile or spontaneously running",
+    "behavioral_task": "Passive viewing of repeated silent movie clips (no explicit task, no reward, no locomotion requirement)"
+  },
+  "spike_level": {
+    "sorting_method_software": "Not specified (Allen Brain Observatory Neuropixels dataset, likely Kilosort or similar, but not stated in this paper)",
+    "unit_inclusion_thresholds": "Broad spiking neurons; significance of modulation by movie frames determined by z-scored sparsity > 2",
+    "temporal_binning_filters": "33 ms bins for spike counts; z-scored sparsity and other metrics computed per frame",
+    "computed_metrics": "Z-scored sparsity, movie tuning percentage, firing rate modulation, number and duration of movie-fields per cell",
+    "stat_controls": "Chance levels determined by shuffling; significance by z-score > 2; Kolmogorov-Smirnov tests for group comparisons"
+  },
+  "spatial_level": {
+    "frm_bin_size_coord": "Movie frame (33 ms per frame); spatial location not relevant (head-fixed, non-spatial task)",
+    "smoothing_kernel": "Not specified",
+    "occupancy_correction": "Not applicable (no spatial navigation)",
+    "normalization": "Firing within movie-fields normalized by shuffle response",
+    "place_field_definition": "Movie-field: segment of movie with significantly elevated firing (z-scored sparsity > 2)",
+    "spatial_metrics": "Number of movie-fields per cell, duration of movie-fields, cumulative duration, mega-scale index (ratio of longest to shortest field per cell)",
+    "stability_remapping": "Comparison of tuning between continuous and scrambled movie sequences; stability across trials and conditions",
+    "object_cue_related": "Not specified (movie content is naturalistic, not object- or cue-specific)"
+  },
+  "population_level": {
+    "correlation_measures": "Pearson correlation for frame-to-frame similarity and for comparing cell responses across conditions",
+    "dimensionality_reduction": "Not specified",
+    "clustering": "Not specified",
+    "decoding_prediction": "Decoding error of movie frame identity from population activity (see Methods, average decoding error computed)",
+    "synchrony_assembly": "Multiple single-unit activity (MSUA) modulation compared to chance"
+  },
+  "temporal_network": {
+    "cross_correlation": "Not specified",
+    "sequences_replay": "Not specified (no explicit replay analysis, but sequence encoding assessed via continuous vs scrambled movie)",
+    "network_metrics": "Not specified",
+    "spike_lfp_coherence": "Not specified"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "relevance": "yes",
+  "reason": "Species is rat; in vivo single-unit electrophysiology and LFP recordings are present.",
+  "header": {
+    "title": "Spike-based coupling between single neurons and populations across rat sensory cortices, perirhinal cortex, and hippocampus",
+    "authors": "Reinder Dorman, Jeroen J. Bos, Martin A. Vinck, Pietro Marchesi, Julien Fiorilli, Jeanette A.M. Lorteije, Ingrid Reiten, Jan G. Bjaalie, Michael Okun, Cyriel M.A. Pennartz",
+    "year": "2023",
+    "journal_or_doi": "Cerebral Cortex, 2023, 33, 8247–8264; https://doi.org/10.1093/cercor/bhad111"
+  },
+  "category": {
+    "spike_level": true,
+    "spatial_level": true,
+    "population_level": true,
+    "temporal_network": true,
+    "lfp_eeg": true,
+    "supporting_aux": true
+  },
+  "data_description": {
+    "recording_type": "In vivo tetrode recordings (single-unit and LFP)",
+    "brain_region": "Hippocampal CA1, somatosensory cortex (S1BF), visual cortex (V1), perirhinal cortex (PER)",
+    "species": "Rat",
+    "behavioral_condition": "Active wakefulness (task performance) and sleep",
+    "behavioral_task": "Two-choice visual discrimination task on a figure-8 maze"
+  },
+  "spike_level": {
+    "sorting_method_software": "KlustaKwik (Ken Harris), MClust 3.5 (A.D. Redish)",
+    "unit_inclusion_thresholds": "Clusters accepted when inter-spike interval of 2 ms was contaminated with < 0.1% of total spike count; minimum of 3 cells per session and area for inclusion",
+    "temporal_binning_filters": "Spiking activity extracted from bandpass filtered (600–6,000 Hz) signals, digitized at 3 kHz; 1 ms epochs",
+    "computed_metrics": "Single-neuron population coupling (SNPC), Z-scored to shuffled distribution; firing rate; waveform shape; spatial selectivity",
+    "stat_controls": "Kruskal–Wallis test, Wilcoxon’s signed-rank and rank sum tests, Bonferroni correction, bootstrapping (1,000 iterations), Freedman-Diaconis’ method for binning"
+  },
+  "spatial_level": {
+    "frm_bin_size_coord": "Maze segmented into 51 equally sized spatial bins (~9 cm each)",
+    "smoothing_kernel": "Not specified",
+    "occupancy_correction": "Not specified",
+    "normalization": "Z-scored SNPC to shuffled distribution",
+    "place_field_definition": "Not specified",
+    "spatial_metrics": "Spatial selectivity of CA1 cells; negative correlation between SNPC and spatial selectivity",
+    "stability_remapping": "Not specified",
+    "object_cue_related": "Visual and tactile cues (CS+ and CS− symbols, sandpaper texture) used in behavioral task"
+  },
+  "population_level": {
+    "correlation_measures": "Spearman’s rank correlation, Pearson’s correlation, cross-correlation of single-unit with population activity",
+    "dimensionality_reduction": "Not specified (multi-Gaussian curve fitting and dimensionality reduction mentioned but not systematically used)",
+    "clustering": "Automated and manual spike sorting based on waveform features",
+    "decoding_prediction": "Decoding of reference cell’s spiking activity from population rates; explained variance",
+    "synchrony_assembly": "Broadcasting Index (number of areas a single cell is significantly coupled with); analysis of synchrony across areas"
+  },
+  "temporal_network": {
+    "cross_correlation": "Cross-correlation of single-unit activity with summed population activity within and between areas",
+    "sequences_replay": "Not specified",
+    "network_metrics": "Broadcasting Index (BI); analysis of within- and between-area coupling; meta-network characterization",
+    "spike_lfp_coherence": "Not specified (LFPs mentioned as context for CA1 synchrony, but no explicit spike-LFP coherence analysis described)"
+  }
+}
