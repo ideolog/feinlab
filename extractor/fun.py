@@ -99,8 +99,7 @@ class BelochUX:
         eta = self._fmt_eta(eta_seconds)
 
         # always show progress line
-        self.writer(f"{remaining} documents left.\n")
-        self.writer(f"{int(pct)}% processed by Beloch  — {eta}\n")
+        self.writer(f"🐿️ processed {int(pct)}%. Left: {remaining} document{'s' if remaining != 1 else ''} ≈{eta}\n")
 
         # animal bar
         bar, flags = self._bar_animals(pct)
