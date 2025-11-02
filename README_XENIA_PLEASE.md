@@ -1,19 +1,20 @@
 # FeinLab / Extractor — извлечение данных из PDF
 
-1. Распакуй архив проекта (zip)
+1. Открой терминал и скопируй этот проект:
+   git clone https://github.com/ideolog/feinlab.git
 
-2. Открой терминал и перейди в папку проекта:
+3. Открой терминал и перейди в папку проекта:
 cd feinlab
 
-3. Создай виртуальное окружение:
+4. Создай виртуальное окружение:
 python -m venv .venv
 
-4. Активируй виртуальное окружение:
+5. Активируй виртуальное окружение:
 source .venv/bin/activate
 
-5. Открой проект feinlab c помощью Pycharm
+6. Открой проект feinlab c помощью Pycharm
 
-6. Установи зависимости:
+7. Установи зависимости:
 pip install --upgrade pip
 pip install -r requirements.txt
 
