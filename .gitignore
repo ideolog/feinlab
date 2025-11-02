@@ -1,0 +1,92 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.log
+
+# Byte-compiled / optimized / DLL files
+.Python
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Type checkers / linters
+.mypy_cache/
+.pytype/
+.pyright/
+.ruff_cache/
+.pylint.d/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+ENV/
+
+# --- Django ---
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+# collectstatic output (если используешь отдельную папку)
+static/
+# локальные настройки (если есть)
+local_settings.py
+
+# --- Env files ---
+.env
+.env.*
+!.env.example
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Editors / IDEs ---
+# JetBrains / PyCharm
+.idea/
+*.iml
+out/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf/
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/gradle.xml
+.idea/**/libraries/
+
+# VS Code (на всякий)
+.vscode/
+.history/
+
+# --- Node (если в проекте есть фронт) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# --- Git user-level files (не для репы) ---
+.git-credentials
+.gitconfig

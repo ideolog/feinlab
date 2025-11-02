@@ -1,0 +1,116 @@
+Use only the uploaded PDF content. Do not infer. If a detail is missing, write "Not specified".
+temperature=0. Output ONLY valid JSON matching the schema below.
+
+Relevance rules (apply in this order, strictly):
+
+1) Determine species first:
+Species detection policy: Decide species only from (in order): Title → Abstract → ‘Animals/Subjects/Methods’ sections. Ignore references and discussion. If both ‘rat’ and ‘mouse’ appear anywhere, pick the species named in Title/Animals/Methods. If multiple species, pick the one used for the in-vivo single-unit/LFP data. Return ‘Not specified’ only if none of these sections contain a species.
+    - If species is mouse:
+       {"relevance": "no", "reason": "Species is mouse (not rat)."}
+   - If species is any non-rat (e.g., monkey, human, fish, bird, etc.):
+       {"relevance": "no", "reason": "Species is [detected species], not rat."}
+
+2) Only if species = rat:
+   Check electrophysiology relevance:
+   If the paper does NOT include in vivo electrophysiology in rats with single-unit and/or LFP recordings:
+       {"relevance":"no","reason":"Not relevant: no in vivo single-unit or LFP electrophysiology in rats."}
+
+3) Otherwise (species = rat AND electrophysiology present):
+   relevance = "yes"
+   and fill the full schema.
+
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HippocampalMethodsExtraction",
+  "type": "object",
+  "required": ["relevance"],
+  "properties": {
+    "relevance": { "type": "string", "enum": ["yes", "no"] },
+    "reason": { "type": "string" },
+
+    "header": {
+      "type": "object",
+      "required": ["title", "authors", "year", "journal_or_doi"],
+      "properties": {
+        "title": { "type": "string" },
+        "authors": { "type": "string" },
+        "year": { "type": "string" },
+        "journal_or_doi": { "type": "string" }
+      }
+    },
+
+    "category": {
+      "type": "object",
+      "required": ["spike_level","spatial_level","population_level","temporal_network","lfp_eeg","supporting_aux"],
+      "properties": {
+        "spike_level": { "type": "boolean" },
+        "spatial_level": { "type": "boolean" },
+        "population_level": { "type": "boolean" },
+        "temporal_network": { "type": "boolean" },
+        "lfp_eeg": { "type": "boolean" },
+        "supporting_aux": { "type": "boolean" }
+      }
+    },
+
+    "data_description": {
+      "type": "object",
+      "required": ["recording_type","brain_region","species","behavioral_condition","behavioral_task"],
+      "properties": {
+        "recording_type": { "type": "string" },
+        "brain_region": { "type": "string" },
+        "species": { "type": "string" },
+        "behavioral_condition": { "type": "string" },
+        "behavioral_task": { "type": "string" }
+      }
+    },
+
+    "spike_level": {
+      "type": "object",
+      "required": ["sorting_method_software","unit_inclusion_thresholds","temporal_binning_filters","computed_metrics","stat_controls"],
+      "properties": {
+        "sorting_method_software": { "type": "string" },
+        "unit_inclusion_thresholds": { "type": "string" },
+        "temporal_binning_filters": { "type": "string" },
+        "computed_metrics": { "type": "string" },
+        "stat_controls": { "type": "string" }
+      }
+    },
+
+    "spatial_level": {
+      "type": "object",
+      "required": ["frm_bin_size_coord","smoothing_kernel","occupancy_correction","normalization","place_field_definition","spatial_metrics","stability_remapping","object_cue_related"],
+      "properties": {
+        "frm_bin_size_coord": { "type": "string" },
+        "smoothing_kernel": { "type": "string" },
+        "occupancy_correction": { "type": "string" },
+        "normalization": { "type": "string" },
+        "place_field_definition": { "type": "string" },
+        "spatial_metrics": { "type": "string" },
+        "stability_remapping": { "type": "string" },
+        "object_cue_related": { "type": "string" }
+      }
+    },
+
+    "population_level": {
+      "type": "object",
+      "required": ["correlation_measures","dimensionality_reduction","clustering","decoding_prediction","synchrony_assembly"],
+      "properties": {
+        "correlation_measures": { "type": "string" },
+        "dimensionality_reduction": { "type": "string" },
+        "clustering": { "type": "string" },
+        "decoding_prediction": { "type": "string" },
+        "synchrony_assembly": { "type": "string" }
+      }
+    },
+
+    "temporal_network": {
+      "type": "object",
+      "required": ["cross_correlation","sequences_replay","network_metrics","spike_lfp_coherence"],
+      "properties": {
+        "cross_correlation": { "type": "string" },
+        "sequences_replay": { "type": "string" },
+        "network_metrics": { "type": "string" },
+        "spike_lfp_coherence": { "type": "string" }
+      }
+    },
