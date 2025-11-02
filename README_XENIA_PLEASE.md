@@ -18,7 +18,6 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 6. Обнови файл .env в корне проекта рядом с manage.py
-Я пока оставил свой АПИ ключ. Можешь его заменить на свой. 
 Открой страницу https://platform.openai.com/settings/organization/api-keys
 Скопируй свой API-ключ
 Вставь в .env строку:
